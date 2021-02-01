@@ -24,7 +24,7 @@ function App() {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : myTheme}>
-        <Paper style={{ height: "100vh"}}>
+        <Paper style={{ height: "100vh", padding: "500px "}}>
             <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
             <Grid container direction="row">
                 <Typography variant="h1">This is great Stuff</Typography>
