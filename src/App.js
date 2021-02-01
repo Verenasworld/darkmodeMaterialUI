@@ -3,29 +3,35 @@ import './App.css';
 import {Switch, Grid, Typography, Button, Paper} from "@material-ui/core";
 import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import {useState} from "react";
-
-
+import {blue} from "@material-ui/core/colors";
 
 
 function App() {
 
     const [darkMode, setDarkMode] = useState(false)
-    const theme = createMuiTheme({
+    const darkTheme = createMuiTheme({
         palette: {
-            type: darkMode ? "dark" : "light",
+          type: "dark",
+        },
+    });
+
+    const myTheme = createMuiTheme({
+        palette: {
+            primary: blue,
+            secondary: blue,
         }
     })
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={darkMode ? darkTheme : myTheme}>
         <Paper style={{ height: "100vh"}}>
             <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
-            <Grid container direction="column">
-                <Typography variant="h1"> This is great</Typography>
-                <Button variant="contained" color="primary">
+            <Grid container direction="row">
+                <Typography variant="h1">This is great Stuff</Typography>
+                <Button style={{margin: "10px"}} className="myButton" variant="contained" color="primary" size="small" >
                     this is a button
                 </Button>
-                <Button variant="contained" color="secondary">
+                <Button  style={{margin: "10px"}} variant="contained" color="secondary"  size="small" >
                     this is also a great button
                 </Button>
             </Grid>
